@@ -15,7 +15,7 @@ We will create a Function that will tell us out Fuel Gauge level
 """
 
 import random
-import time
+from time import sleep
 
 # Gas Level Function
 
@@ -45,5 +45,14 @@ def gasLevelAlert():
     milesToGasStationQuarterTank = round(random.uniform(26, 50), 2)
     if gasLevelIndicator == "Empty":
         print("***WARNING YOU ARE ON EMPTY***")
-        time.sleep(1)
+        sleep(1)
         print("Calling emergency contact")
+    elif gasLevelIndicator == "low":
+        print("***WARNING***")
+        sleep(1)
+        print("Your gas tank is low, checking Google Maps for the closest gas station.")
+        sleep(1)
+        print("The closest gas station is", listOfGasStations(), "which is", milesToGasStationLow, "miles away.")
+        
+
+gasLevelAlert()
