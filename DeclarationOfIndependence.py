@@ -17,7 +17,14 @@ def weather():
 # Variable to call weather() function once in our VRS()
 weatherAlert = weather()
 
+weatherAlert = "Snowing"
+
 
 # VRS() to respond to the weather conditions
 def vehicleResponseSystem():
-    print("Placeholder")
+    if weatherAlert == "Snowing":
+        print("\nNWS has changed your alarm by 15 minutes because of the weather forecast of ", weatherAlert)
+        print("VRS has been engaged only allowing your vehicle to go 45mph")
+
+
+vehicleResponseSystem()
