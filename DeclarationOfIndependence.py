@@ -74,27 +74,50 @@ def gasLevelAlert():
     milesToGasStationLow = round(random.uniform(1, 25), 2)
     milesToGasStationQuarterTank = round(random.uniform(26, 50), 2)
     if gasLevelIndicator == "Empty":
-        print("***WARNING YOU ARE ON EMPTY***")
+        print("\n***WARNING YOU ARE ON EMPTY***")
         sleep(1)
-        print("Calling Emergency Contact")
+        print("\nCalling Emergency Contact")
     elif gasLevelIndicator == "Low":
-        print("***Warning***")
+        print("\n***Warning***")
         sleep(1)
-        print("Your gas tank is extremely low, checking Google Maps for the closest gas station.")
+        print("\nYour gas tank is extremely low, checking Google Maps for the closest gas station.")
         sleep(1)
-        print("The closest gas station is", listOfGasStations(), "which is", milesToGasStationLow, "miles away.")
+        print("\nThe closest gas station is", listOfGasStations(), "which is", milesToGasStationLow, "miles away.")
     elif gasLevelIndicator == "Quarter Tank":
-        print("***Warning***")
+        print("\n***Warning***")
         sleep(1)
-        print("Your gas tank is only a quarter full.")
+        print("\nYour gas tank is only a quarter full.")
         sleep(1)
-        print("The closest gas station is", listOfGasStations(), "which is", milesToGasStationQuarterTank, "miles away.")
+        print("\nThe closest gas station is", listOfGasStations(), "which is", milesToGasStationQuarterTank, "miles away.")
     elif gasLevelIndicator == "Half Tank":
-        print("Your gas tank is half full, which is enough gas to safely make it to your destination")
+        print("\nYour gas tank is half full, which is enough gas to safely make it to your destination")
     elif gasLevelIndicator == "Three Quarter Tank":
-        print("Your gas tank is three quarters full, which is more than enough to safely make it to your destination")
+        print("\nYour gas tank is three quarters full, which is more than enough to safely make it to your destination")
     else:
-        print("Your gas tank is full, Good Job, Vroom Vroom")
+        print("\nYour gas tank is full, Good Job, Vroom Vroom")
+
+# Create weather conditions from in a list and choose it randomly
+def weather():
+    weatherForecast = ["Snowing", "Blizzard", "Raining", "Foggy", "Windy", "Icy", "Sunshine", "Cloudy", "Tornado"]
+    weatherCondition = random.choice(weatherForecast)
+    return weatherCondition
 
 
+# Variable to call weather() function once in our VRS()
+weatherAlert = weather()
+
+
+# VRS() to respond to the weather conditions
+def vehicleResponseSystem():
+    if (weatherAlert != "Sunshine"):
+        print("\nNWS is calling for", weatherAlert, "please drive extra careful")
+    else:
+        print("\nNWS is calling for Sunshine drive safely and have a wonderful day!")
+
+#Call function here
+print("\nNational weather service is checking conditions")
+sleep(1)
+vehicleResponseSystem()
+print("\nChecking current gas levels")
+sleep(1)
 gasLevelAlert()
